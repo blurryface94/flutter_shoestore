@@ -14,6 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int _currentIndex = 0;
   Widget _buildGradientContainer(double width, double height) {
     return Align(
       alignment: Alignment.topRight,
@@ -64,7 +65,7 @@ class _MyAppState extends State<MyApp> {
           ),
           Text(
             "Lorem Ipsem",
-            style: TextStyle(fontSize: 18.0, fontFamily: "Montserrat-Medium"),
+            style: TextStyle(fontSize: 16.0, fontFamily: "Montserrat-Medium"),
           )
         ],
       ),
@@ -106,17 +107,71 @@ class _MyAppState extends State<MyApp> {
                                   padding: EdgeInsets.only(top: 45.0),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: (index % 2 == 0)
-                                          ? Colors.white
-                                          : Color(0xFF2a2d3f),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.black12,
-                                            offset: Offset(0.0, 10.0),
-                                            blurRadius: 10.0)
-                                      ],
-                                    ),
+                                        color: (index % 2 == 0)
+                                            ? Colors.white
+                                            : Color(0xFF2a2d3f),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.black12,
+                                              offset: Offset(0.0, 10.0),
+                                              blurRadius: 10.0)
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(12.0)),
                                   ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Image.asset(
+                                        images[index],
+                                        width: 172.5,
+                                        height: 199.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 12.0,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(title[index],
+                                              style: TextStyle(
+                                                  fontSize: 16.0,
+                                                  fontFamily: "Montserrat-Bold",
+                                                  color: (index % 2 == 0)
+                                                      ? Color(0xFF2a2d3f)
+                                                      : Colors.white)),
+                                          SizedBox(
+                                            height: 8.0,
+                                          ),
+                                          Text("New Sell",
+                                              style: TextStyle(
+                                                  fontSize: 12.0,
+                                                  fontFamily:
+                                                      "Montserrat-Medium",
+                                                  color: (index % 2 == 0)
+                                                      ? Color(0xFF2a2d3f)
+                                                      : Colors.white)),
+                                          SizedBox(
+                                            height: 50.0,
+                                          ),
+                                          Text(price[index] + " \$",
+                                              style: TextStyle(
+                                                  fontSize: 30.0,
+                                                  fontFamily: "Montserrat-Bold",
+                                                  color: (index % 2 == 0)
+                                                      ? Color(0xFF2a2d3f)
+                                                      : Colors.white)),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 )
                               ],
                             ),
@@ -129,6 +184,50 @@ class _MyAppState extends State<MyApp> {
           );
         },
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        currentIndex: _currentIndex,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.panorama_horizontal),
+              title: Container(
+                height: 0.0,
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark_border),
+              title: Container(
+                height: 0.0,
+              ))
+        ],
+      ),
+      floatingActionButton: Container(
+        width: 65.0,
+        height: 65.0,
+        decoration: BoxDecoration(
+            color: Color(0xFFfa7b58),
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                  color: Color(0xFFf78a6c).withOpacity(.6),
+                  offset: Offset(0.0, 10.0),
+                  blurRadius: 10.0)
+            ]),
+        child: RawMaterialButton(
+          shape: CircleBorder(),
+          child: Icon(
+            Icons.add,
+            size: 35.0,
+            color: Colors.white,
+          ),
+          onPressed: () {},
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

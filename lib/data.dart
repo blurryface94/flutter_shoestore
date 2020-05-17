@@ -3,7 +3,7 @@ var images = [
   "images/blackankle.png",
   "images/charcoal.png",
   "images/navy.png",
-  "images/redankle.png",
+  "images/04redankle.png",
   "images/white.png",
 ];
 
