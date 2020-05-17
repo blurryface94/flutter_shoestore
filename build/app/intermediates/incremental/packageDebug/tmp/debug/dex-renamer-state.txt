@@ -1,4 +1,4 @@
-#Sun May 17 21:53:09 AEST 2020
+#Sun May 17 22:14:35 AEST 2020
 base.0=/Users/Work/Documents/GitHub/flutter_shoestore/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

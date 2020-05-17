@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
             style: TextStyle(fontSize: 28.0, fontFamily: "Montserrat-Bold"),
           ),
           Text(
-            "Lorem Ipsem",
+            "Chuck Taylor All Star Classics",
             style: TextStyle(fontSize: 16.0, fontFamily: "Montserrat-Medium"),
           )
         ],
@@ -99,7 +99,7 @@ class _MyAppState extends State<MyApp> {
                         return Padding(
                           padding: EdgeInsets.only(left: 35.0, bottom: 60.0),
                           child: SizedBox(
-                            width: 200.0,
+                            width: 180.0,
                             child: Stack(
                               fit: StackFit.expand,
                               children: [
@@ -123,19 +123,16 @@ class _MyAppState extends State<MyApp> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Align(
-                                      alignment: Alignment.topCenter,
-                                      child: Image.asset(
-                                        images[index],
-                                        width: 172.5,
-                                        height: 199.0,
-                                      ),
+                                    Image.asset(
+                                      images[index],
+                                      width: 172.5,
+                                      height: 199.0,
                                     ),
                                     SizedBox(
                                       height: 12.0,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(12.0),
+                                      padding: EdgeInsets.all(12.0),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -159,9 +156,9 @@ class _MyAppState extends State<MyApp> {
                                                       ? Color(0xFF2a2d3f)
                                                       : Colors.white)),
                                           SizedBox(
-                                            height: 50.0,
+                                            height: 10.0,
                                           ),
-                                          Text(price[index] + " \$",
+                                          Text("\$" + price[index],
                                               style: TextStyle(
                                                   fontSize: 30.0,
                                                   fontFamily: "Montserrat-Bold",
