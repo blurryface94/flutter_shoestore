@@ -77,24 +77,37 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+//      appBar: AppBar(
+//        title: Text("check"),
+//      ),
       backgroundColor: Color(0xFFf2f3f0),
       body: LayoutBuilder(
         builder: (context, constraints) {
           var width = constraints.maxWidth;
           var height = constraints.maxHeight;
 
+//          return ListView.builder(
+//            itemCount: products.length,
+//            itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                      transitionDuration: Duration(milliseconds: 350),
-                      pageBuilder: (context, _, __) =>
-                          ProductDetail(product: products[0])));
 //              Navigator.push(
-//                context,
-//                MaterialPageRoute(builder: (context) => ProductDetail()),
-//              );
+//                  context,
+
+//                  PageRouteBuilder(
+//                      transitionDuration: Duration(milliseconds: 350),
+//                      pageBuilder: (context, _, __) =>
+//                          ProductDetail(product: products[0])));
+//                  Navigator.push(
+//                    context,
+//                    MaterialPageRoute(builder: (context) => ProductDetail()),
+//                  );
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => ProductDetail(
+                          product: products[0],
+                        )),
+              );
             },
             child: Stack(
               fit: StackFit.expand,
@@ -105,7 +118,7 @@ class _MyAppState extends State<MyApp> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: SizedBox(
-                      height: height * .6,
+                      height: height * .65,
                       child: ListView.builder(
                         itemCount: images.length,
                         scrollDirection: Axis.horizontal,
